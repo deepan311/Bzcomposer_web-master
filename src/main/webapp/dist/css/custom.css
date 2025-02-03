@@ -1,0 +1,272 @@
+@charset "ISO-8859-1";
+body,
+html{
+	margin:auto;
+	padding: 0;
+}
+.esb_body{ float: left; width: 100%; padding: 40px;}
+
+.esb_page-heading{float: left; width: 100%;}
+.esb_page-heading h3{font-size:1.1em;color: #05A9C5; font-family: "Philosopher", "Bitstream Vera Sans", "Lucida Grande", "Trebuchet MS",Arial, Helvetica, sans-serif !important; font-weight: bold;}
+
+.esb_tab{ float: left; width: 100%; margin-top: 25px;}
+.esb_tab ul{padding: 0px; margin: 0px;}
+.esb_tab ul li{ float: left; margin-right: 10px; list-style: none; border: 1px solid #ccc; padding: 10px; cursor: pointer;}
+
+.esb_tab1_details,.esb_tab2_details{ float: left; width: 100%; margin-top: 10px; border: 1px solid #ccc; padding: 10px;}
+
+.esb_filter_option{ float: left; width: 80%; border: 1px solid #ccc; padding: 10px; }
+
+.esb_button_right{ float: left; width: 20%;}
+.esb_button_right ul li{ list-style: none; margin-bottom: 10px;}
+
+
+
+.esb_saleslist,.esb_saleslist_title{ float: left; width: 100%;}
+.esb_saleslist_title{ margin-top: 20px;}
+.esb_saleslist_title h3{ font-size:18px;}
+
+
+.esb_button_bottom{ float: left; width: 100%; margin-top: 20px; text-align: center;}
+
+.esb_button_bottom ul{ margin: 0 auto; padding: 0px; display: inline-block;}
+
+.esb_button_bottom ul li{  float: left; list-style: none; font-size: 14px; margin-right: 5px;}
+
+.esb_tab2_details_inner_tab{float: left; width: 100%; margin-top: 10px;}
+
+.esb_tab2_details_inner_tab ul{padding: 0px; margin: 0px;}
+
+.esb_tab2_details_inner_tab ul li{ float: left; margin-right: 10px; list-style: none; border: 1px solid #ccc; padding: 10px; cursor: pointer; font-size: 14px;}
+
+.esb_item_upload_tab{ float: left; width: 100%; margin-top: 10px; border: 1px solid #ccc; padding: 10px;  }
+
+/*file menu*/
+
+.bca_file_twocheckbox{ float: left; width: 100%;}
+.bca_file_twocheckbox ul li{ float: left; margin-right: 15px; list-style: none;}
+
+.bca_file_twocheckbox_btn{ float: left; width: 100%; bottom: 0px; margin-top: 30px;}
+.bca_file_twocheckbox_btn ul{margin: 0px !important;}
+.bca_file_twocheckbox_btn ul li{ float: left; margin-right: 15px; list-style: none;}
+
+.bca_printlayouts{ border: 1px solid #ccc; float: left; width: 90%; margin-top: 20px; margin-left: 30px; }
+
+/*tab*/
+.bca_multiprintwindow{ float: left; width: 90%;}
+.bca_multiprintwindow ul{padding: 0px; margin: 0px;}
+.bca_multiprintwindow ul li{ float: left; margin-right: 10px; list-style: none; border: 1px solid #ccc; padding: 10px; cursor: pointer;}
+.mpw_tab1_details{ float: left; width: 100%; margin-top: 10px; border: 1px solid #ccc; padding: 10px;}
+.mpw_tab1_details_left{ float: left; width: 40%; padding: 20px;}
+.mpw_tab1_details_right{ float: left; width: 40%; padding: 20px;}
+.tab1_nuberpofpages{ float: left; width: 100%; margin-bottom: 30px;}
+.tab1_print{ float: left; width: 100%; margin-bottom: 30px;}
+.tab1_sortoption{ float: left; width: 100%; margin-bottom: 30px;}
+.tab1_ptions{ float: left; width: 100%; margin-bottom: 30px;}
+.mpw_button_bottom{ float: left; width: 100%; margin-top: 10px;}
+.mpw_button_bottom ul{padding: 0px; margin: 0px; float: right;}
+.mpw_button_bottom ul li{ list-style:none; margin-right: 10px; float: left;}
+
+.mpw_tab2_details{ float: left; width: 100%; margin-top: 10px; border: 1px solid #ccc; padding: 10px;}
+/**/
+
+/*welcome screen after login 13-11-2018*/
+.container{width: 100%; margin: 0 auto;}
+.bca_welcomescreen{ float: left; width: 100%;}
+.bca_login_body{ float: left;width: 100%; height: 500px;}
+.bca_login_body ul{margin-left: 33%;padding: 0px;margin-top: 15%; float: left;}
+.bca_login_body ul li { list-style: none;}
+.bca_login_body ul li a{ color: #000; font-weight: bold;}
+
+.bca_create_view_company{ float: right;margin-top: 15%; margin-left: 30px; margin-right: 30px;}
+.bca_create_view_company ul{ margin-top: 0px;  margin-left: 0px;}
+
+.bca_create_view_company_right
+{
+	float: right;
+	margin-top: 15%; 
+	/* commented on 12-06-2019 */
+	margin-left: 30px; 
+	margin-right: 30px;
+	/* margin-left: 50px;
+    margin-right: 300px; */
+}
+.bca_create_view_company_right ul{ margin-top: 0px;  margin-left: 0px;}
+.bca_create_view_company_right ul li img{ float: left;}
+.bca_create_view_company_right ul li p{ color: #0099ff;font-weight: bold;}
+/**/
+
+
+/*create new company*/
+
+.bca_createnewcompanyimgleft{ float: left;}
+.bca_createnewcompanyright{ float: left; width: 95%;     background-color: #d4d0c8; border: 2px solid;}
+.bca_createnewcompanyright .bca_createnewcompanyright_title{ float: left; width: 100%; text-align: center;}
+.bca_createnewcompanyright .bca_createnewcompanyright_title h3{ margin: 0px; border: 2px solid #9999ff; padding: 10px; background-color: #cccccc}
+.bca_createnewcompanyright .bca_createnewcompanyright_body{ float: left; width: 95%; margin-left: 30px;}
+.bca_createnewcompanyright_body h4 {float: left;width: 95%; font-size: 14px;}
+.bca_formControl1{ float: left;width: 95%;}
+
+.bca_companyConnectMode{ float: left; width: 95%;}
+.bca_companyConnectMode h4{ float: left; width: 100%;}
+.bca_companyConnectMode ul { margin: 0px; padding: 0px;}
+.bca_companyConnectMode ul li{ list-style: none !important; margin-bottom: 20px; float: left; margin-right: 30px;}
+
+
+.bca_formControl2{ float: left; width: 95%;}
+.bca_formControl2 p{margin-top:0px; } 
+.bca_formControl2 .bca_combos{ float: left;}
+.bca_formControl2 .bca_combos ul{ margin: 0px; padding: 0px;}
+.bca_formControl2 .bca_combos ul li{ list-style: none !important;margin-bottom: 10px; float: left; margin-right: 30px;}
+
+.bca_createnewcompanyright_bottom{ float: left; width: 95%; margin-top: 10px;}
+.bca_createnewcompanyright_bottom ul{ margin: 0px; padding: 0px; float: right;}
+.bca_createnewcompanyright_bottom ul li{ float: left; margin-right: 10px; list-style: none !important;}
+
+
+.bca_twolistboxes{ float: left; width: 100%;}
+
+.bca_companyInformationForm{ float: left; width: 100%;}
+
+
+.bca_bankaccount_left{float: left; width: 16%; border: 1px solid; margin-top: 30px; padding: 20px; background-color: #fff; font-size: 14px; height: 500px;}
+.bca_creatingchatsofaccounts{float: left; width: 100%;}
+.bca_bankaccounttitle{float: left; width: 100%; margin-top: 10px;}
+.bca_bankaccountlist{ float: left;}
+.bca_bankaccountlist ul{ margin-bottom: 0px;}
+.bca_bankaccountlist ul li{ cursor: pointer; padding: 4px; list-style: none !important;}
+/* .bca_bankaccountlist ul li:hover{background-color: #05A9C5; color: #fff;} */
+
+.bca_bankaccount_right{ float:right; width: 70%; margin-top: 30px; border: 1px solid #000; padding: 20px; height: 500px;}
+.bca_accountinformationtitle{float: left; width: 100%;}
+.bca_accountinformationtitle h2{ font-size: 14px;}
+
+.bca_accountinformationbody{ float: left; width: 100%; margin-top: 20px;}
+
+.bca_accountinformationbody_button{ float: left; width: 100%; margin-top: 20px;}
+.bca_accountinformationbody_button a{ font-size: 14px;     border: 1px solid #000;
+    padding: 7px;
+    background-color: #fff;
+    cursor: pointer;
+    }
+
+
+/**/
+
+/**/
+.bca_steuppreferences{float: left; width: 100%;}
+.bca_setuppreference_left{ float: left; width: 100%;}
+.bca_bankaccounttitle{float: left; width: 100%; margin-top: 10px;}
+.bca_twobutton{ float:left; margin-top: 30px; width: 10%; text-align: center; margin-left: 30px;}
+.bca_twobutton ul { margin: 0px; padding: 0px;}
+.bca_twobutton ul li:first-child{margin-bottom:10px; }
+.bca_setuppreference_add,.bca_setuppreference_remove{ padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; background-color: #fff; font-size: 14px;}
+.bca_preferencelist{ float: left;}
+.bca_preferencelist ul{ margin-bottom: 0px;}
+.bca_preferencelist ul li{ cursor: pointer; padding: 4px; list-style: none !important;}
+
+.bca_setuppreference_left{float: left; width: 16%; border: 1px solid; margin-top: 30px; padding: 20px; background-color: #fff; font-size: 14px; height: 400px; overflow: auto;}
+/**/
+
+
+.createNewCoupa{
+    margin:auto;
+    padding: 0 0 15px;
+    background: #d4d0c8;
+}
+.createNewCoupaLeft {width: 18%;float: left;padding: 15px;}
+.createNewCoupaRight {width: 18%;float: left;padding: 15px;}
+.createNewCoupaContant{width: 64%;float: left;padding: 15px;}
+
+.createNewCoupa ul.tab-nav {
+    display: block;
+    margin: auto auto 15px;
+    padding: 0;
+}
+.createNewCoupa ul li{
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+.createNewCoupa .fieldset {
+    border: 1px solid #000;
+    padding: 24px 10px 10px;
+    position: relative;
+    display: block;
+    float:left;
+    width: 100%;
+}
+.createNewCoupa .fieldset + .fieldset{
+	margin-top: 30px;
+} 
+.fieldset h6 {
+    background: #d4d0c8;
+    top: -13px;
+    margin-bottom: 0px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding: 4px 7px;
+    position: absolute;
+}
+.createNewCoupaRight button {
+    width: 80px;
+    margin: 10px auto;
+}
+.btnWrap{
+	display: block;
+	margin: auto;
+	padding:10px;
+	text-align: right;
+}
+.btnWrap button{
+	display: inline-block;
+	vertical-align: top;
+	margin: auto;
+	 width: 80px;	
+}
+
+
+/**/
+.bca_companylist{ float: left; margin-top: 10px; padding: 5px; width: 100%;}
+.bca_companylist select{ width:100%; height: 700px;}
+/**/
+
+
+/**/
+.bca_settingupinventory_top{ float: left; width: 100%; border: 1px solid #000; padding: 10px; margin-top: 10px;}
+.bca_settingupinventory_top_table{ float: left;}
+.bca_settingupinventory_top_button{ float: right;}
+.bca_settingupinventory_top_button ul li{ list-style: none; margin-bottom: 10px;}
+.bca_settingupinventory_top_table_sec{ float: left; width: 100%; margin-top: 20px;}
+/**/
+
+
+.bca_settingupinventory_bottom{ float: left; width: 100%; margin-top: 10px;}
+.bca_threecheckbox{ float: left; width: 100%; margin-top: 20px;}
+.bca_threecheckbox ul { margin: 0px; padding: 0px;}
+.bca_threecheckbox ul li { list-style: none; float: left; margin-right: 30px;}
+
+.bca_settingupinventory_bottom table{ float: left; width: 100%; border: 1px solid;}
+
+
+form[name="LoginForm"] .container{
+	width:100%;
+}
+form[name="LoginForm"] .bca_login_body{
+    background-size: cover;
+    background-position:center;
+}
+.bca_welcomescreen img {
+    display: block;
+}
+.bca_welcomescreen .loginheader{
+	background-image:url(../../images/headerbg-x.jpg);
+	background-position: center;
+}
+.bca_welcomescreen .loginheader img{
+	margin: 10px;
+	display: block;
+}
+	
+

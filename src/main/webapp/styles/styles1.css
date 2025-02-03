@@ -1,0 +1,87 @@
+*	{
+			margin: 0px;
+			padding: 0px;
+	}
+
+
+body {
+		background-image: url('img/login.png');
+		background-size: cover;
+		background-attachment: fixed;
+		/*background-attachment:fixed;*/
+		font-size: 14px;
+		color: #333333;
+		font-weight: normal;
+
+	}	
+
+.header-space { margin: 60px 0px 20px 0px; }	
+.card-title   {color:#333; text-align: center; }
+.card-body    {	background: transparent; 
+				
+  			  }
+
+input[type='text'] { 
+					  border-radius:20px;
+					  border:1px solid #ced4da;
+					  color:#495057;
+					  font-weight: normal;
+					  padding:25px;
+					  max-width:270px;
+					  background: transparent;
+					}
+input[type='password'] { 
+					  border-radius:20px;
+					  border:1px solid #ced4da;
+					  color:#495057;
+					  font-weight: normal;
+					  padding:25px;
+					  max-width:270px;
+					  background: transparent;
+					}
+form-group {
+			    margin-bottom: 15px;
+			    text-align: center;
+			   	 width: 255px;
+			    margin-top: 20px;
+			    margin-bottom: 20px;
+		   }
+
+.formbox
+		{
+			margin: 0px auto;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			width: 255px;
+			margin-top: 20px;
+			margin-bottom: 10px; 
+
+	    }	
+.clearfix {padding: 0px; margin: 0px; clear:both;}	  
+.btn {
+		text-align: center;
+		margin: 0px auto;
+		width: 249px;
+		padding: 10px;
+		margin-top: 20px;
+		border-radius: 35px;
+	} 					
+
+	.btnT {
+			text-align: center;
+			margin: 0px auto;
+			width: 249px;
+			padding: 10px;
+			margin-top: 0px;
+			border-radius: 35px;
+	}
+
+	.btnTh {
+			text-align: center;
+			margin: 0px auto;
+			width: 249px;
+		 	padding: 10px;
+			margin-top: 10px;
+			border-radius: 35px;
+			background-color: #3B5998;
+		    }

@@ -1,0 +1,34 @@
+
+.eSalesWrap fieldset {
+	border: 1px solid #ccc;
+	margin: 5px;
+	padding: 10px;
+}
+
+.eSalesWrap fieldset label select {
+	margin: auto;
+	height: auto;
+	padding: 0;
+}
+
+.eSalesWrap fieldset label input {
+display: inline;
+    width: 50px;
+    margin: auto;
+	
+}
+.eSalesWrap .eSalesChannelSettingWrap {max-width: 600px;}
+div#blanquito  .eSalesWrap .storeList{
+		background-color: #f0f5f9;
+		list-style: none;
+		margin: auto;
+		padding: 10px;
+}
+div#blanquito  .eSalesWrap .storeList li{
+	margin: auto;
+	padding: 0 10px;
+	font-size: 13px;	
+}
+div#blanquito  .eSalesWrap .storeList > li{
+	margin-bottom: 10px;
+}

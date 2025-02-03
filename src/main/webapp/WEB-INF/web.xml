@@ -1,0 +1,256 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	<!-- Index -->
+	<description>BZComposer The Accounting Package</description>
+	<!--<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			org.apache.struts.action.ActionServlet
+		</servlet-class>
+		&lt;!&ndash;<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>&ndash;&gt;
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>validate</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		&lt;!&ndash; <init-param>
+			<param-name>locale</param-name>
+			<param-value>true</param-value>
+		</init-param> &ndash;&gt;
+		<init-param>
+			<param-name>ApplicationResources</param-name>
+			<param-value>
+				com.avibha.view.ApplicationResources
+			</param-value>
+		</init-param>
+		&lt;!&ndash; These 2 parameters added on 04-10-2019 &ndash;&gt;
+		<init-param>
+			<param-name>ApplicationResources_zh</param-name>
+			<param-value>
+				com.avibha.view.ApplicationResources_zh
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ApplicationResources_es</param-name>
+			<param-value>
+				com.avibha.view.ApplicationResources_es
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+
+
+	</servlet>-->
+
+	<!--  to fix the issue on config   https://stackoverflow.com/questions/5484253/jspservice-is-exceeding-the-65535-bytes-limit -->
+	<servlet>
+		<servlet-name>jsp</servlet-name>
+		<servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
+		<init-param>
+			<param-name>mappedfile</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+	
+
+	<!--<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<session-config>
+		<session-timeout>1000</session-timeout>
+	</session-config>-->
+
+
+	<filter>
+		<filter-name>AuthenticationFilter</filter-name>
+		<filter-class>com.avibha.common.filter.AuthenticationFilter</filter-class>
+		<init-param>
+			<param-name>avoid-urls</param-name>
+			<param-value>/jsp/index.jsp</param-value>
+		</init-param>
+	</filter>
+		<filter-mapping>
+		<filter-name>AuthenticationFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+
+	<mime-mapping>
+		<extension>html</extension>
+		<mime-type>text/html</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>txt</extension>
+		<mime-type>text/plain</mime-type>
+	</mime-mapping>
+	<!-- <welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list> -->
+
+	<!-- <env-entry>
+		<env-entry-name>DriverClass</env-entry-name>
+		<env-entry-value>com.mysql.jdbc.Driver</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry> -->
+
+
+<!--	&lt;!&ndash;<env-entry>-->
+<!--		<env-entry-name>URL</env-entry-name>-->
+<!--		<env-entry-value>-->
+<!--			jdbc:mysql://localhost:3306/namemaxx_bzc1?useSSL=false-->
+<!--		</env-entry-value>-->
+<!--		<env-entry-type>java.lang.String</env-entry-type>-->
+<!--	</env-entry>-->
+<!--	<env-entry>-->
+<!--		<env-entry-name>UID</env-entry-name>-->
+<!--		<env-entry-value>root</env-entry-value>-->
+<!--		<env-entry-type>java.lang.String</env-entry-type>-->
+<!--	</env-entry>-->
+<!--	<env-entry>-->
+<!--		<env-entry-name>password</env-entry-name>-->
+<!--		<env-entry-value>root@123</env-entry-value>-->
+<!--		<env-entry-type>java.lang.String</env-entry-type>-->
+<!--	</env-entry>&ndash;&gt;-->
+
+
+
+<!-- 	  <env-entry>
+		<env-entry-name>URL</env-entry-name>
+		<env-entry-value>
+			jdbc:mysql://localhost/bzc?useSSL=false&amp;autoReconnect=true&amp;lower_case_table_names=1
+		</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry> -->
+	<!-- <env-entry>
+		<env-entry-name>UID</env-entry-name>
+		<env-entry-value>root</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>password</env-entry-name>
+		<env-entry-value>root</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry> -->
+
+	<!-- <env-entry>
+		<env-entry-name>URL</env-entry-name>
+		<env-entry-value>
+			jdbc:mysql://198.38.89.143:3306/bcacom_bzcomposer?useSSL=false&amp;autoReconnect=true
+		</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>UID</env-entry-name>
+		<env-entry-value>bcacom_bcacom</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>password</env-entry-name>
+		<env-entry-value>bcacom@2332</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry> -->
+	<!-- Local URL,UID and Password Ends -->
+
+
+	<!-- <env-entry>
+		<env-entry-name>poolsize</env-entry-name>
+		<env-entry-value>5</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry> -->
+	<!-- <env-entry>
+		<env-entry-name>DatabaseType</env-entry-name>
+		<env-entry-value>MYSQL</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry> -->
+	<env-entry>
+		<env-entry-name>MAILHOST</env-entry-name>
+		<env-entry-value>localhost</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>mailProtocol</env-entry-name>
+		<env-entry-value>smtp</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>MailUsername</env-entry-name>
+		<env-entry-value></env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>MailPassword</env-entry-name>
+		<env-entry-value></env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>MailFrom</env-entry-name>
+		<env-entry-value>support@bizComposer.com</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>DebugLevel</env-entry-name>
+		<env-entry-value>true</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>Info</env-entry-name>
+		<env-entry-value>true</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<env-entry>
+		<env-entry-name>Level3</env-entry-name>
+		<env-entry-value>false</env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+	<!-- 	<context-param>
+            <param-name>host</param-name>
+            <param-value>smtp.gmail.com</param-value>
+        </context-param>
+        <context-param>
+            <param-name>port</param-name>
+            <param-value>25</param-value>
+        </context-param>
+        <context-param>
+            <param-name>port</param-name>
+            <param-value>587</param-value>
+        </context-param>
+        <context-param>
+            <param-name>user</param-name>
+            <param-value></param-value>
+        </context-param>
+
+        <context-param>
+            <param-name>pass</param-name>
+            <param-value>YOUR_PASS</param-value>
+        </context-param> -->
+<!--	<jsp-config>-->
+<!--		<taglib>-->
+<!--			<taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>-->
+<!--			<taglib-location>/WEB-INF/struts-bean.tld</taglib-location>-->
+<!--		</taglib>-->
+<!--		<taglib>-->
+<!--			<taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>-->
+<!--			<taglib-location>/WEB-INF/struts-html.tld</taglib-location>-->
+<!--		</taglib>-->
+<!--		<taglib>-->
+<!--			<taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>-->
+<!--			<taglib-location>/WEB-INF/struts-logic.tld</taglib-location>-->
+<!--		</taglib>-->
+<!--		&lt;!&ndash; This taglib added on 08-10-2019 &ndash;&gt;-->
+<!--		<taglib>-->
+<!--			<taglib-uri>/WEB-INF/struts-tags.tld</taglib-uri>-->
+<!--			<taglib-location>/WEB-INF/struts-tags.tld</taglib-location>-->
+<!--		</taglib>-->
+<!--	</jsp-config>-->
+</web-app>

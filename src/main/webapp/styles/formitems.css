@@ -1,0 +1,151 @@
+#hintbox { /*CSS for pop up hint box */
+	position: absolute;
+	background-color: lightyellow;
+	width: 150px; /*Default width of hint.*/
+	padding: 3px;
+	border: 1px solid black;
+	font: normal 11px Verdana;
+	line-height: 18px;
+	z-index: 100;
+	border-right: 3px solid black;
+	border-bottom: 3px solid black;
+	visibility: hidden;
+}
+
+.hintanchor { /*CSS for link that shows hint onmouseover*/
+	font-weight: bold;
+	color: navy;
+	margin: 3px 8px;
+}
+
+.ctrl {
+	font-family: Tahoma, Verdana, sans-serif;
+	font-size: 12px;
+	width: 100%;
+}
+
+.btnform {
+	border: 0px;
+	font-family: tahoma, verdana;
+	font-size: 12px;
+	background-color: #DBEAF5;
+	width: 100%;
+	height: 18px;
+	text-align: center;
+	cursor: hand;
+}
+
+.btn {
+	background-color: #DBEAF5;
+	padding: 0px;
+}
+
+textarea,select,input {
+	font: 10px Verdana, arial, helvetica, sans-serif;
+/* 	background-color: #DBEAF5; */
+}
+input:focus,textarea:focus,select:focus {
+	border-color: rgba(82, 168, 236, 0.8);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(82, 168, 236, 0.6);
+	outline: 0;
+	outline: thin dotted \9;
+}
+/* classes for validator */
+.tfvHighlight {
+	color: #CEA639;
+}
+
+.tfvNormal {
+	color: black;
+}
+
+.inputHighlighted {
+	color: #CEA639;
+}
+
+.inputNormal {
+	color: black;
+}
+
+/* Tool Tip Styles */
+#bubble_tooltip {
+	width: 147px;
+	position: absolute;
+	display: none;
+}
+
+#bubble_tooltip .bubble_top {
+	background-image: url('../images/bubble_top.gif');
+	background-repeat: no-repeat;
+	height: 16px;
+}
+
+#bubble_tooltip .bubble_middle {
+	background-image: url('../images/bubble_middle.gif');
+	background-repeat: repeat-y;
+	background-position: bottom left;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+#bubble_tooltip .bubble_middle span {
+	position: relative;
+	top: -8px;
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+	font-size: 11px;
+}
+
+#bubble_tooltip .bubble_bottom {
+	background-image: url('../images/bubble_bottom.gif');
+	background-repeat: no-repeat;
+	background-repeat: no-repeat;
+	height: 44px;
+	position: relative;
+	top: -6px;
+}
+
+a img {
+	border: 0;
+}
+
+table.sortable {
+	border-spacing: 0;
+	border: 1px solid #000;
+	border-collapse: collapse;
+}
+
+table.sortable th,table.sortable td {
+	text-align: left;
+	padding: 2px 4px 2px 4px;
+	width: 100px;
+	border-style: solid;
+	border-color: #E7F0D0;
+}
+
+table.sortable th {
+	border-width: 0px 1px 1px 1px;
+	background-color:rgba(5, 169, 197, 0.11);
+}
+
+table.sortable td {
+	border-width: 0px 1px 0px 1px;
+}
+
+table.sortable tr.odd td {
+	background-color: #F0F7E2;
+}
+
+table.sortable tr.even td {
+	background-color: #fff;
+}
+
+table.sortable tr.sortbottom td {
+	border-top: 1px solid #E7F0D0;
+	background-color: #ccc;
+	font-weight: bold;
+}

@@ -1,0 +1,240 @@
+/*
+
+	General Application Cascading Style Sheets
+	
+	by Diego M. Lafuente - dlafuente@gmail.com
+	http://www.minid.net
+	
+	Last edition: 2006-06-24
+	
+	(c) Copyright 2006 Diego Lafuente. 
+	
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+	
+	
+	*/
+	/* Author notes: The use for this style sheets is only targeted for forms in
+	   tractis contracts page. Do not use it or edit for any other 
+	   propourse than form styling. */ /* contract body */
+#contract {
+	
+}
+
+/* definición de títulos */
+#blanquito #contract h1 {
+	color: #000;
+}
+
+#blanquito #contract h2 {
+	color: #000;
+	margin: 0;
+	padding: 0 0 3px 0;
+}
+
+#blanquito #contract h3 {
+	color: #000;
+	margin: 0;
+	border: 0;
+}
+
+/* definición de párrafos (en modo vista, NO EDICION) */
+div#blanquito div#contract div.clause-head {
+	border: 0;
+	padding: 0 0 0 0;
+}
+
+/* esto agrega el espacio entre secciones, para diferenciarlas de las cláusulas */
+div#blanquito div#contract div.sbody {
+	padding: 0 0 35px 0;
+}
+
+/* espaciado entre cláusulas */
+div#blanquito div#contract div.cbody {
+	padding: 0 0 15px 0;
+}
+
+/* espaciado entre cláusulas y párrafos de sección */
+	/* controla el aspecto de los textos cuando se ven en modo no edición (sin textareas) */
+div#blanquito div#contract div.sbody p,div#blanquito div#contract div.cbody p
+	{
+	font-size: .8em;
+	line-height: 1.3em;
+	margin-top: 0;
+}
+
+/* definición de párrafos (en modo edición, NO NOVISTA EN EDICION) */
+div#blanquito div#contract_container h1 {
+	padding: 0;
+}
+
+div#blanquito div#contract_container h1 textarea,div.title {
+	border: 0;
+	color: #000;
+	font: 32px/ 35px "Bitstream Vera Sans", "Lucida Grande", Arial,
+		Helvetica, sans-serif;
+	display: block;
+	margin: 0 0 0 0 !important;
+	overflow: hidden;
+}
+
+div#blanquito div#contract_container h1 textarea {
+	width: 99%;
+}
+
+div#blanquito div#contract_container h2 textarea,div.stitle {
+	border: 0;
+	color: #000;
+	font: 24px/ 26px "Bitstream Vera Sans", "Lucida Grande", Arial,
+		Helvetica, sans-serif;
+	display: block;
+	margin: 0 0 5px 0 !important;
+	overflow: hidden;
+	background: transparent;
+}
+
+div#blanquito div#contract_container h2 textarea {
+	width: 99%;
+}
+
+div#blanquito div#contract_container h3 textarea,div.ctitle {
+	border: 0;
+	color: #000;
+	font: 18px/ 20px "Bitstream Vera Sans", "Lucida Grande", Arial,
+		Helvetica, sans-serif;
+	display: block;
+	margin: 0 0 10px 0 !important;
+	overflow: hidden;
+	background: transparent;
+}
+
+div#blanquito div#contract_container h3 textarea {
+	width: 99%;
+	background: transparent;
+}
+
+div#blanquito div#contract_container div.cbody textarea,div#blanquito div#contract_container div.sprologue textarea,div.paragraph
+	{
+	border: 0;
+	color: #555;
+	width: 100%;
+	font: 14px/ 16px "Bitstream Vera Sans", "Lucida Grande", Arial,
+		Helvetica, sans-serif;
+	display: block;
+	margin: 0 0 10px 0 !important;
+	overflow: hidden;
+	padding: 0;
+	background: transparent;
+}
+
+div#blanquito div#contract_container div.cbody textarea,div#blanquito div#contract_container div.sprologue textarea
+	{
+	width: 100%;
+	background: transparent;
+	padding: 0;
+}
+
+div.cbody {
+	
+}
+
+div.sbody {
+	
+}
+
+div.sprologue {
+	
+}
+
+div.section {
+	
+}
+
+/* focos de selección */
+div#blanquito div#contract_container h1 textarea:focus {
+	border: 0px;
+	background: #f9f9f9;
+	margin: 0 !important;
+}
+
+div#blanquito div#contract_container h2 textarea:focus {
+	border: 0px;
+	background: #f9f9f9;
+	margin: 0 0 5px 0 !important;
+}
+
+div#blanquito div#contract_container div.cbody textarea:focus {
+	border: 0px;
+	background: #f9f9f9;
+	margin: 0 0 10px 0 !important;
+	color: #333;
+}
+
+div#blanquito div#contract_container div.sbody textarea:focus,div#blanquito div#contract_container div.sprologue textarea:focus
+	{
+	border: 0px;
+	background: #f9f9f9;
+	margin: 0 0 10px 0 !important;
+	color: #333;
+}
+
+div#blanquito div#contract_container h3 textarea:focus {
+	border: 0px;
+	background: #f9f9f9;
+	margin: 0 0 10px 0 !important;
+	color: #333;
+}
+
+/* selecciones genéricas */
+div textarea.resize {
+	border: none;
+	overflow: hidden;
+	display: block;
+	font-family: "Bitstream Vera Sans", "Lucida Grande", Arial, Helvetica,
+		sans-serif;
+	background: transparent;
+}
+
+.clause ul.clauseactions,.section ul.sectionactions {
+	visibility: hidden;
+}
+
+.clause:hover ul.clauseactions,.section:hover ul.sectionactions {
+	visibility: visible;
+}
+
+ul.sectionactions,ul.clauseactions {
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	width: 130px;
+	z-index: 200;
+	margin-right: -140px;
+	background: #fff;
+	position: relative;
+	float: right;
+}
+
+ul.sectionactions li,ul.clauseactions li {
+	font-size: 11px;
+	padding: 3px 0 5px 0;
+	display: block;
+}
+
+ul.sectionactions li img,ul.clauseactions li img {
+	vertical-align: middle;
+}
+
+.links-lock a.exclusive {
+	visibility: hidden;
+}
