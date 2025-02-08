@@ -70,7 +70,7 @@ public abstract class DatabaseException extends RuntimeException
 
     /**
      * constructor initializes the sqlErrorCode to -1 and the SQLState to null
-     * @param s
+     * @param
      */
     public DatabaseException(String msg)
     {
