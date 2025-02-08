@@ -226,6 +226,8 @@ function showLocale(){
         <nav><div class="au-navbar navbar-1">&nbsp;</div></nav>
     </div>
 </header>
+
+
 <section>
 <form:form action="/addUserMember" method="post" name="MultiUserForm" modelAttribute="multiUserForm" onsubmit="return validateRegisterForm();">
 	<div class="container">
