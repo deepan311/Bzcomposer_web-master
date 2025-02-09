@@ -51,7 +51,7 @@ public class FormTemplatesController {
         //till this
         if (session.getAttribute("currentLocale") == null) {
             session.setAttribute("currentLocale", "en");
-        }
+        } 
         ArrayList<BCA_FormTemplateType> formTemplate=service.fetchTemplatesByCompanyId(Integer.parseInt(companyID));
         
       
