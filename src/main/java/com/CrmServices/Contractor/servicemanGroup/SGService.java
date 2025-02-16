@@ -114,6 +114,8 @@ public class SGService {
     public List<UCServicemanEntity> getUIServicemanByContractorId(int contractor_id) {
         return daoUIServiceman.getUIServicemanByContractorId(contractor_id);
     }
+        
+
 
 
 }

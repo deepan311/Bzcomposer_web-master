@@ -982,6 +982,42 @@
                </ul>
                </li> --%>
 			<!-- eSales navigation over -->
+			 <li>
+				<a href="contractor/serviceman" title="Contractor">
+					<span>
+						Contractor Management
+					</span>
+				</a>
+				<ul>
+					<li>
+						<a href="contractor/serviceman" title="Manage Serviceman Groups">
+							<span>Manage Serviceman Groups</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="serviceman" title="Servicemen">
+					<span>Serviceman Management</span>
+				</a>
+				<ul>
+					<li>
+						<a href="serviceman/create" title="Add New Serviceman">
+							<span>Add New Serviceman</span>
+						</a>
+					</li>
+					<li>
+						<a href="serviceman" title="Serviceman Dashboard">
+							<span>Serviceman Dashboard</span>
+						</a>
+					</li>
+					<li>
+						<a href="serviceman/auth" title="Serviceman Login">
+							<span>Serviceman Login</span>
+						</a>
+					</li>
+				</ul>
+			</li>
 			<li>
 				<a href="Configuration?tabid=config" title="Confuguration" class="uppercaseText">
 					<spring:message code="BzComposer.Confuguration" />

@@ -1,4 +1,4 @@
-package com.CrmServices.ServiceMan.registration;
+package com.CrmServices.ServiceMan.AuthServiceman;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,35 +12,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.CrmServices.ServiceMan.registration.dao.DAOImp;
-import com.CrmServices.ServiceMan.registration.dao.DTORequest;
-import com.CrmServices.ServiceMan.registration.dao.DTOResponse;
-import com.CrmServices.ServiceMan.registration.dao.ServicemanEntity;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.DAOImp;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.DTORequest;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.DTOResponse;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.ServicemanEntity;
 import com.CrmServices.company.dao.Company;
 
 @Controller
 
-class ServiceController{
+class AuthController{
 
     @Autowired
     private ServicemanServices servicemanServices;
-
-
-
-    @GetMapping("/serviceman")
-    public String servicemanHome(HttpServletRequest request ,Model model){
-
-        if (request.getSession().getAttribute("loginData") == null) {
-            return "redirect:/serviceman/auth"; // Redirect to login page if session is missing
-        }
-        if (request.getSession().getAttribute("userID") != null) {
-            return "redirect:/contractor/serviceman";
-        }
-        DTOResponse loginData = (DTOResponse) request.getSession().getAttribute("loginData");
-        model.addAttribute("servicemanData", loginData);
-        return "crm/serviceman/ServicemanHome";
-    }
-
 
     @GetMapping("serviceman/create")
     public String createServiceman(Model model, HttpServletRequest request){

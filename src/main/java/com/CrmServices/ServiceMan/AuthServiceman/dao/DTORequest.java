@@ -1,4 +1,4 @@
-package com.CrmServices.ServiceMan.registration.dao;
+package com.CrmServices.ServiceMan.AuthServiceman.dao;
 
 public class DTORequest {
     private String name;

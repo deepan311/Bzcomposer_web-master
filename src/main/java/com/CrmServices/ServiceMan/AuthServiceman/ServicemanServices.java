@@ -1,4 +1,4 @@
-package com.CrmServices.ServiceMan.registration;
+package com.CrmServices.ServiceMan.AuthServiceman;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.CrmServices.ServiceMan.registration.dao.DAOImp;
-import com.CrmServices.ServiceMan.registration.dao.DTORequest;
-import com.CrmServices.ServiceMan.registration.dao.DTOResponse;
-import com.CrmServices.ServiceMan.registration.dao.ServicemanEntity;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.DAOImp;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.DTORequest;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.DTOResponse;
+import com.CrmServices.ServiceMan.AuthServiceman.dao.ServicemanEntity;
 
 @Service
 public class ServicemanServices {

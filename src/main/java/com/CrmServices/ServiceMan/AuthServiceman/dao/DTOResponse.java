@@ -1,6 +1,7 @@
-package com.CrmServices.ServiceMan.registration.dao;
+package com.CrmServices.ServiceMan.AuthServiceman.dao;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class DTOResponse {
     private int servicemanId;
@@ -13,8 +14,8 @@ public class DTOResponse {
     private int companyId;
     private String behavior_status;
     private String status;
-    private Date created_date;
-    private Date updated_date;
+    private Timestamp created_date;
+    private Timestamp updated_date;
 
     // No-argument constructor
     public DTOResponse() {
@@ -101,19 +102,19 @@ public class DTOResponse {
         this.status = status;
     }
 
-    public Date getCreated_date() {
+    public Timestamp getCreated_date() {
         return created_date;
     }
 
-    public void setCreated_date(Date created_date) {
+    public void setCreated_date(Timestamp created_date) {
         this.created_date = created_date;
     }
 
-    public Date getUpdated_date() {
+    public Timestamp getUpdated_date() {
         return updated_date;
     }
 
-    public void setUpdated_date(Date updated_date) {
+    public void setUpdated_date(Timestamp updated_date) {
         this.updated_date = updated_date;
     }
 

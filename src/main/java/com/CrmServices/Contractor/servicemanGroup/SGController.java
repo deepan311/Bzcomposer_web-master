@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -43,7 +44,7 @@ public class SGController {
     @GetMapping("")
 
     public String serviceman(Model model, HttpServletRequest request) {
-
+        
         if (request.getSession().isNew() ||
                 request.getSession().getAttribute("userID") == null) {
             return "loginPage1";
@@ -63,7 +64,7 @@ public class SGController {
         List<DTOSGResponse> servicemanGroupEntities = sgService.getServicemanAllGroup(contractor_id);
         model.addAttribute("serviceman_group", servicemanGroupEntities);
 
-        List<UCServicemanEntity> uIServicemanEntities = sgService.getUIServicemanByContractorId(contractor_id);
+        List<UCServicemanEntity> uIServicemanEntities = sgService.getUIServicemanByContractorId(contractor_id); 
         model.addAttribute("under_contractor", uIServicemanEntities);
 
 
@@ -89,6 +90,8 @@ public class SGController {
         if (request.getSession().isNew() || request.getSession().getAttribute("userID") == null) {
             return ResponseEntity.badRequest().body(Map.of("error", "User not logged in"));
         }
+
+
 
         try {
 
@@ -167,4 +170,7 @@ public class SGController {
                     .body(Map.of("error", e.getMessage()));
         }
     }
+
+
+   
 }

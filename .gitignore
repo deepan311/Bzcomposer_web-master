@@ -45,3 +45,5 @@ operr-v3-auth.iml
 .icloud
 /db_nextbits_bzweb
 /out
+.env
+.env.local

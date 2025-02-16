@@ -113,4 +113,17 @@ public class ServicemanGroupEntity {
     public void setLeaderServicemanName(String leaderServicemanName) {
         this.leaderServicemanName = leaderServicemanName;
     }
+
+@Override
+public String toString() {
+    return "ServicemanGroupEntity{" +
+            "servicemanId=" + servicemanId +
+            ", groupName='" + groupName + '\'' +
+            ", underContractorId=" + underContractorId +
+            ", createdDate=" + createdDate +
+            ", updatedDate=" + updatedDate +
+            ", servicemanName='" + servicemanName + '\'' +
+            ", leaderServicemanName='" + leaderServicemanName + '\'' +
+            '}';
+}
 }
