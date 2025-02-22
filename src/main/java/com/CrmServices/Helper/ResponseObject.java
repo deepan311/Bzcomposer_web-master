@@ -36,9 +36,6 @@ public class ResponseObject {
 
 
 
-    public Object getData() {
-        return data;
-    }
 
 
     public String getSuccessMessage() {
@@ -86,6 +83,10 @@ public class ResponseObject {
 
     public void setData(Object data) {
         this.data = data;
+    }
+    
+    public Object getData() {
+        return data;
     }
 
     

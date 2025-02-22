@@ -1,4 +1,4 @@
-package com.CrmServices.ServiceMan.registration.dao;
+package com.CrmServices.ServiceMan.AuthServiceman.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -89,8 +89,8 @@ public class DAOImp {
                 servicemanEntity.setTaxForm1099(rs.getBoolean("tax_form_1099"));
                 servicemanEntity.setStatus(rs.getString("status"));
                 servicemanEntity.setBehaviorStatus(rs.getString("behavior_status"));
-                servicemanEntity.setCreatedDate(rs.getDate("created_date"));
-                servicemanEntity.setUpdatedDate(rs.getDate("updated_date"));
+                servicemanEntity.setCreatedDate(rs.getTimestamp("created_date"));
+                servicemanEntity.setUpdatedDate(rs.getTimestamp("updated_date"));
                 return servicemanEntity;
             }
             else{
@@ -181,4 +181,69 @@ public class DAOImp {
 
         return companies;
     }
+
+    public List<ServicemanEntity> searchServiceman(String keyWords, int limit, String columnname, int page) {
+        List<ServicemanEntity> servicemanEntities = new ArrayList<>();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        SQLExecutor db = null;
+        Connection con = null;
+
+        if (columnname == null || columnname.equalsIgnoreCase("password")) {
+            columnname = "name";  // Default to "name" if column is invalid
+        }
+
+        try {
+            db = new SQLExecutor();
+            con = db.getConnection();
+
+            if (con == null) {
+                System.out.println("Database connection failed!");
+                return servicemanEntities;
+            }
+
+            String sql = "SELECT * FROM serviceman " +
+                    "WHERE " + columnname + " LIKE ? " +
+                    "ORDER BY serviceman_id " +
+                    "LIMIT ? OFFSET ?;";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, "%" + keyWords + "%");  // Wrap keyword with % for LIKE query
+            pstmt.setInt(2, limit);
+            pstmt.setInt(3, page); //
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                ServicemanEntity eachServiceman = new ServicemanEntity();
+                eachServiceman.setServicemanId(rs.getInt("serviceman_id"));
+                eachServiceman.setName(rs.getString("name"));
+                eachServiceman.setEmail(rs.getString("email"));
+                eachServiceman.setPhone(rs.getString("phone"));
+                eachServiceman.setFieldOfWork(rs.getString("field_of_work"));
+                eachServiceman.setAddress(rs.getString("address"));
+                eachServiceman.setCompanyId(rs.getInt("company_id"));
+                eachServiceman.setCompanyName(rs.getString("company_name")); // Fixed column
+                eachServiceman.setThirdParty(rs.getBoolean("third_party"));
+                eachServiceman.setTaxForm1099(rs.getBoolean("tax_form_1099"));
+                eachServiceman.setStatus(rs.getString("status"));
+                eachServiceman.setBehaviorStatus(rs.getString("behavior_status"));
+                eachServiceman.setCreatedDate(rs.getTimestamp("created_date"));
+                eachServiceman.setUpdatedDate(rs.getTimestamp("updated_date"));
+                servicemanEntities.add(eachServiceman);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return servicemanEntities;
+    }
+
 }

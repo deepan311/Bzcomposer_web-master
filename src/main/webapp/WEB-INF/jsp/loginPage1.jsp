@@ -139,78 +139,117 @@ td { padding: 10px; }
 	</header>
 	 <!-- START LOGIN FORM HERE -->
 	<section>
-        <form action="/LoginValidate?tabid=chkLoginDetails" name="LoginForm" method="post" onsubmit="return validateLoginForm();">
-        	<div class="container">
-        		<div style="width:70%;margin: 0px auto; margin-top:30px;float:left;">
-        		    <h2>
-                        <spring:message code="BzComposer.login"/>
-                    </h2>
-        			<table style="width:85%;border: 1px solid lightgray;padding: 20px;" cellspacing="20">
-        			    <tr>
-                            <td colspan="3" align="center" style="color:red;">
-                                <c:if test="${not empty loginError}">
-                                    <c:if test="${loginError == false}">
-                                        <spring:message code="err.user.username.wrong"/>
-                                    </c:if>
-                                </c:if>
-                            </td>
-        				</tr>
-        				<tr>
-                            <td>&nbsp;&nbsp;&nbsp; <spring:message code="MultiUserForm.emailAddress" /></td>
-                            <td>
-                                <input type="email" class="form-control" name="userName" style="width:300px;" value="${userName}" required />
-                            </td>
-                            <td></td>
-        				</tr>
-        				<tr>
-                            <td>&nbsp;&nbsp;&nbsp; <spring:message code="MultiUserForm.password" /></td>
-                            <td>
-                                <input type="password" class="form-control" name="password" style="width:300px;" value="${pass}" required />
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <div class="g-recaptcha" data-sitekey="6LdYG_YbAAAAABCyLjdCmVFrlS6rkKpHosXfMMoH"></div>
-                                <span class="msg-error" id="captchaResponse"></span>
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <input type="checkbox" name="rememberMe" id="rememberMe" value="${remember}" onchange="rememberMeChanged()" />
-                                <spring:message code="BzComposer.signin.rememberme"/>
-                                <a href="#" style="margin-left:40px;">
-                                    <span style="cursor: pointer; font-size:15px;"><spring:message code="BzComposer.signin.forgotpassword"/></span>
-                                </a>
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td class="form-group bca_loginbtn" align="right">
-                                <button type="submit" id="submitBtn" class="btn btn-primary imgClass"><spring:message code='BzComposer.signin.login'/></button>
+        <div class="container">
+            <div class="row">
+                <!-- Existing Login Form -->
+                <div class="col-md-8">
+                    <form action="/LoginValidate?tabid=chkLoginDetails" name="LoginForm" method="post" onsubmit="return validateLoginForm();">
+                        <div style="width:70%;margin: 0px auto; margin-top:30px;float:left;">
+                            <h2>
+                                <spring:message code="BzComposer.login"/>
+                            </h2>
+                            <table style="width:85%;border: 1px solid lightgray;padding: 20px;" cellspacing="20">
+                                <tr>
+                                    <td colspan="3" align="center" style="color:red;">
+                                        <c:if test="${not empty loginError}">
+                                            <c:if test="${loginError == false}">
+                                                <spring:message code="err.user.username.wrong"/>
+                                            </c:if>
+                                        </c:if>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp; <spring:message code="MultiUserForm.emailAddress" /></td>
+                                    <td>
+                                        <input type="email" class="form-control" name="userName" style="width:300px;" value="${userName}" required />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp; <spring:message code="MultiUserForm.password" /></td>
+                                    <td>
+                                        <input type="password" class="form-control" name="password" style="width:300px;" value="${pass}" required />
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <div class="g-recaptcha" data-sitekey="6LdYG_YbAAAAABCyLjdCmVFrlS6rkKpHosXfMMoH"></div>
+                                        <span class="msg-error" id="captchaResponse"></span>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <input type="checkbox" name="rememberMe" id="rememberMe" value="${remember}" onchange="rememberMeChanged()" />
+                                        <spring:message code="BzComposer.signin.rememberme"/>
+                                        <a href="#" style="margin-left:40px;">
+                                            <span style="cursor: pointer; font-size:15px;"><spring:message code="BzComposer.signin.forgotpassword"/></span>
+                                        </a>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary" onclick="toggleServicemanSection()">
+                                            Serviceman Portal
+                                        </button>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td class="form-group bca_loginbtn" align="right">
+                                        <button type="submit" id="submitBtn" class="btn btn-primary imgClass"><spring:message code='BzComposer.signin.login'/></button>
 
-                                <input type="hidden" name="actionType" id="actionType" value=""/>
-                            </td>
-                        </tr>
-        			</table>
-        		</div>
-        		<div style="margin: 0px auto; margin-top:50px;float:right;margin-bottom:50px;">
-        		    <div style="width:300px;border: 1px solid lightgray;"><a href="https://www.joyofrelax.com/" target="_blank" rel="noopener noreferrer">
-        		        <img src="${pageContext.request.contextPath}/dist/template/images/loginBnA.png" style="width:300px;display:block;"></a>
-        		    </div>
-        		    <div style="width:300px;border: 1px solid lightgray;"><a href="https://www.ceragemusa.net" target="_blank" rel="noopener noreferrer">
-        		        <img src="${pageContext.request.contextPath}/dist/template/images/loginBnB.png" style="width:300px;display: block;"></a>
-        		    </div>
-        		    <!-- <div style="width:300px;border: 1px solid lightgray;"><a href="https://www.biomatplus.com/" target="_blank" rel="noopener noreferrer">
-        		        <img src="${pageContext.request.contextPath}/dist/template/images/loginBnC.png" style="width:300px;display: block;"></a>
-        		    </div> -->
-        		</div>
-        	</div>
-        </form>
+                                        <input type="hidden" name="actionType" id="actionType" value=""/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="margin: 0px auto; margin-top:50px;float:right;margin-bottom:50px;">
+                            <div style="width:300px;border: 1px solid lightgray;"><a href="https://www.joyofrelax.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="${pageContext.request.contextPath}/dist/template/images/loginBnA.png" style="width:300px;display:block;"></a>
+                            </div>
+                            <div style="width:300px;border: 1px solid lightgray;"><a href="https://www.ceragemusa.net" target="_blank" rel="noopener noreferrer">
+                                <img src="${pageContext.request.contextPath}/dist/template/images/loginBnB.png" style="width:300px;display: block;"></a>
+                            </div>
+                            <!-- <div style="width:300px;border: 1px solid lightgray;"><a href="https://www.biomatplus.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="${pageContext.request.contextPath}/dist/template/images/loginBnC.png" style="width:300px;display: block;"></a>
+                            </div> -->
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Serviceman Section -->
+                <div id="servicemanSection" style="display: none; width:70%; margin: 20px auto; clear: both;">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">Serviceman Portal</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="/serviceman/auth" method="post" onsubmit="return validateServicemanForm();">
+                                <div class="mb-3">
+                                    <label for="servicemanEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="servicemanEmail" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="servicemanPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="servicemanPassword" name="password" required>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary">Login as Serviceman</button>
+                                    <a href="/serviceman/create" class="btn btn-outline-primary">Register as Serviceman</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</section>
 <!-- our services start -->
 <%@ include file="templateFooter.jsp"%>
@@ -290,6 +329,26 @@ function rememberMeChanged(){
     else{
         document.LoginForm.rememberMe.value = "off";;
     }
+}
+
+function toggleServicemanSection() {
+    const section = document.getElementById('servicemanSection');
+    if (section.style.display === 'none') {
+        section.style.display = 'block';
+    } else {
+        section.style.display = 'none';
+    }
+}
+
+function validateServicemanForm() {
+    let email = document.getElementById('servicemanEmail').value.trim();
+    let password = document.getElementById('servicemanPassword').value.trim();
+    
+    if (email === '' || password === '') {
+        alert('Please fill in all fields');
+        return false;
+    }
+    return true;
 }
 </script>
 </body>

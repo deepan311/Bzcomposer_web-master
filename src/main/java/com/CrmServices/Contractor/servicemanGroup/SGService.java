@@ -10,20 +10,16 @@ import org.springframework.stereotype.Service;
 import com.CrmServices.Contractor.servicemanGroup.dao.DTOSGRequest;
 import com.CrmServices.Contractor.servicemanGroup.dao.DTOSGResponse;
 import com.CrmServices.Contractor.servicemanGroup.dao.DaoServicemanGroupImpl;
-import com.CrmServices.Contractor.servicemanGroup.dao.DaoUCServiceman;
 import com.CrmServices.Contractor.servicemanGroup.dao.ServicemanGroupEntity;
-import com.CrmServices.Contractor.servicemanGroup.dao.UCServicemanEntity;
 import com.CrmServices.Helper.ResponseObject;
 // SERVICE MAN GROUP SERVICE (SG SERVICE)  
 @Service
 public class SGService {
     
     private final DaoServicemanGroupImpl daoServicemanGroup;
-    private final DaoUCServiceman daoUIServiceman;
 
     public SGService() {
         this.daoServicemanGroup = new DaoServicemanGroupImpl();
-        this.daoUIServiceman = new DaoUCServiceman();
     }
 
     public ResponseObject createServicemanGroup(DTOSGRequest requestObject, int contractorId) {
@@ -107,12 +103,6 @@ public class SGService {
         // Convert Map values to List
         List<DTOSGResponse> dtosgResponse = new ArrayList<>(groupMap.values());
         return dtosgResponse;
-    }
-
-
-    // GET ALL SERVICEMAN UNDER CONTRACTOR
-    public List<UCServicemanEntity> getUIServicemanByContractorId(int contractor_id) {
-        return daoUIServiceman.getUIServicemanByContractorId(contractor_id);
     }
 
 

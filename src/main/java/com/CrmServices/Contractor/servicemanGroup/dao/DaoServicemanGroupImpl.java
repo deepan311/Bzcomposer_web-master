@@ -20,8 +20,8 @@ public class DaoServicemanGroupImpl {
 
         String query = "SELECT sg.*, " +
                 "s1.name as serviceman_name, " +
-                "s2.name as leader_name " +
-                "FROM Serviceman_group sg " +
+                "s2.name as serviceman_name " +
+                "FROM serviceman_group sg " +
                 "LEFT JOIN serviceman s1 ON sg.serviceman_id = s1.serviceman_id " +
                 "LEFT JOIN serviceman s2 ON sg.lead_serviceman_id = s2.serviceman_id " +
                 "WHERE sg.under_contractor_id = ? AND sg.group_id = ?";
@@ -47,7 +47,7 @@ public class DaoServicemanGroupImpl {
                 servicemanGroupEntity.setCreatedDate(rs.getTimestamp("created_date"));
                 servicemanGroupEntity.setUpdatedDate(rs.getTimestamp("updated_date"));
                 servicemanGroupEntity.setServicemanName(rs.getString("serviceman_name"));
-                servicemanGroupEntity.setLeaderServicemanName(rs.getString("leader_name"));
+                servicemanGroupEntity.setLeaderServicemanName(rs.getString("serviceman_name"));
 
                 servicemanGroupEntities.add(servicemanGroupEntity);
             }
@@ -77,7 +77,7 @@ public class DaoServicemanGroupImpl {
         SQLExecutor db = null;
         Connection con = null;
 
-        String query = "Insert into Serviceman_group (group_id, serviceman_id, lead_serviceman_id, group_name, under_contractor_id) values (?, ?, ?, ?, ?)";
+        String query = "Insert into serviceman_group (group_id, serviceman_id, lead_serviceman_id, group_name, under_contractor_id) values (?, ?, ?, ?, ?)";
 
         String uniqueIdQuery = "SELECT IFNULL(MAX(group_id), 0) + 1 FROM serviceman_group";
 
@@ -225,7 +225,7 @@ public class DaoServicemanGroupImpl {
 
     public Boolean deleteServicemanGroup(int contractor_id, int group_id) {
 
-        String query = "Delete from Serviceman_group where under_contractor_id = ? and group_id = ?";
+        String query = "Delete from serviceman_group where under_contractor_id = ? and group_id = ?";
 
         SQLExecutor db = null;
         Connection con = null;
@@ -259,7 +259,7 @@ public class DaoServicemanGroupImpl {
         String query = "SELECT sg.*, " +
                 "s1.name as serviceman_name, " +
                 "s2.name as leader_name " +
-                "FROM Serviceman_group sg " +
+                "FROM serviceman_group sg " +
                 "LEFT JOIN serviceman s1 ON sg.serviceman_id = s1.serviceman_id " +
                 "LEFT JOIN serviceman s2 ON sg.lead_serviceman_id = s2.serviceman_id " +
                 "WHERE sg.under_contractor_id = ?";
@@ -313,4 +313,70 @@ public class DaoServicemanGroupImpl {
         }
     }
 
+    public List<ServicemanGroupEntity> groupDetailsByGroupIds(int[] groupIds) {
+        String query = "SELECT sg.*, s.name , s2.name as leader_name " +
+               " FROM serviceman_group AS sg " +
+               " INNER JOIN serviceman AS s ON sg.serviceman_id = s.serviceman_id " +
+               " Inner join serviceman as s2 on  s2.serviceman_id = sg.lead_serviceman_id " +
+               " WHERE sg.group_id IN (";
+
+        for (int i = 0; i < groupIds.length; i++) {
+            query += " ?";
+            if (i < groupIds.length - 1) {
+                query += ",";
+            }
+        }
+
+        query += ")";
+
+        SQLExecutor db = null;
+        Connection con = null;
+        java.sql.PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            db = new SQLExecutor();
+            con = db.getConnection();
+            pstmt = con.prepareStatement(query);
+
+            for (int i = 0; i < groupIds.length; i++) {
+                pstmt.setInt(i + 1, groupIds[i]);
+            }
+
+            rs = pstmt.executeQuery();
+
+            List<ServicemanGroupEntity> groupEntities = new ArrayList<>();
+
+            while (rs.next()) {
+                ServicemanGroupEntity groupEntity = new ServicemanGroupEntity();
+                groupEntity.setUid(rs.getInt("uid"));
+                groupEntity.setServicemanId(rs.getInt("serviceman_id"));
+                groupEntity.setGroupId(rs.getInt("group_id"));
+                groupEntity.setLeadServicemanId(rs.getInt("lead_serviceman_id"));
+                groupEntity.setGroupName(rs.getString("group_name"));
+                groupEntity.setLeaderServicemanName(rs.getString("leader_name"));
+                groupEntity.setServicemanName(rs.getString("name"));
+                groupEntity.setUnderContractorId(rs.getInt("under_contractor_id"));
+                groupEntity.setCreatedDate(rs.getTimestamp("created_date"));
+                groupEntity.setUpdatedDate(rs.getTimestamp("updated_date"));
+                groupEntities.add(groupEntity);
+            }
+
+            return groupEntities;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (rs != null)
+                    db.close(rs);
+                if (pstmt != null)
+                    db.close(pstmt);
+                if (con != null)
+                    db.close(con);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

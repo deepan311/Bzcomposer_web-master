@@ -1,0 +1,24 @@
+/* Ensure menu items are visible */
+.sf-menu {
+    display: block !important;
+}
+
+.sf-menu li {
+    display: block;
+    visibility: visible !important;
+}
+
+/* Debug styles - adds borders to see menu structure */
+.sf-menu li {
+    border: 1px solid #ccc;
+}
+
+.menubar {
+    display: block !important;
+    visibility: visible !important;
+}
+
+#menubar2 {
+    display: block !important;
+    visibility: visible !important;
+} 

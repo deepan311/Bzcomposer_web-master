@@ -72,22 +72,16 @@ CREATE TABLE customer_job (
     address TEXT NOT NULL,
     ongoing_id INT DEFAULT NULL,
     job_history INT DEFAULT NULL,
-    
-    job_status ENUM('pending', 'ongoing', 'completed', 'canceled') NOT NULL DEFAULT 'pending',
+    job_status ENUM('pending', 'active', 'completed', 'canceled') NOT NULL DEFAULT 'pending',
     invoice_id INT DEFAULT NULL,
     payment_status ENUM('pending', 'completed', 'canceled') NOT NULL DEFAULT 'pending',
-
-    request_date TIMESTAMP default NULL,
+    request_date TIMESTAMP DEFAULT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-    -- Foreign Keys (without explicit CONSTRAINT names)
-    FOREIGN KEY (contractor_id) REFERENCES bca_user(ID) ON DELETE CASCADE
-    -- job History
-    -- invoice_id
-    -- ongoing
-    -- 
-    -- create Remaing constrain Below
+    -- Foreign Key Constraints
+    CONSTRAINT fk_customer_job_contractor FOREIGN KEY (contractor_id) REFERENCES bca_user(ID) ON DELETE CASCADE
+    -- remaing CONSTRAIN ADD BELOW
 );
 
 
@@ -116,8 +110,7 @@ CREATE TABLE Job_History (
 
     -- Foreign Keys
   constraint fk_customer_job_Job_History  FOREIGN KEY (job_id) REFERENCES customer_job(job_id) ON DELETE CASCADE,
-  constraint serviceman_id_job_Job_History  FOREIGN KEY (serviceman_id) REFERENCES serviceman(serviceman_id) ON DELETE SET NULL,
-   constraint serviceman_id_job_serviceman_group FOREIGN KEY (group_id) REFERENCES serviceman_group(uid) ON DELETE SET NULL
+  constraint serviceman_id_job_Job_History  FOREIGN KEY (serviceman_id) REFERENCES serviceman(serviceman_id) ON DELETE SET NULL
 );
 
 
@@ -129,16 +122,21 @@ CREATE TABLE OnGoing_Job (
     `group` BOOLEAN NOT NULL DEFAULT FALSE, 
     group_id INT DEFAULT NULL,
     serviceman_id INT DEFAULT NULL,
-    current_status ENUM('request', 'scheduled', 'ongoing', 'completed', 'canceled') NOT NULL DEFAULT 'request',
+    job_history INT DEFAULT NULL,
+    invoice_id INT DEFAULT NULL,
+    current_status ENUM('ongoing', 'complete_request') NOT NULL DEFAULT 'ongoing',
+    contractor_id INT DEFAULT NULL,
     schedule_date TIMESTAMP DEFAULT NULL,
     estimate_deadline TIMESTAMP DEFAULT NULL,
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     -- Foreign Key Constraints
-    CONSTRAINT fk_ongoing_job_OnGoing_Job FOREIGN KEY (job_id) REFERENCES customer_job(job_id) ON DELETE CASCADE,
-    CONSTRAINT fk_ongoing_group_OnGoing_Job FOREIGN KEY (group_id) REFERENCES serviceman_group(uid) ON DELETE SET NULL,
-    CONSTRAINT fk_ongoing_serviceman_OnGoing_Job FOREIGN KEY (serviceman_id) REFERENCES serviceman(serviceman_id) ON DELETE SET NULL
+    CONSTRAINT fk_ongoing_job_job_id FOREIGN KEY (job_id) REFERENCES customer_job(job_id) ON DELETE CASCADE,
+    CONSTRAINT fk_ongoing_job_invoice_id FOREIGN KEY (invoice_id) REFERENCES job_invoice(invoice_id) ON DELETE CASCADE,
+    CONSTRAINT fk_ongoing_serviceman FOREIGN KEY (serviceman_id) REFERENCES serviceman(serviceman_id) ON DELETE SET NULL,
+    CONSTRAINT fk_ongoing_job_history FOREIGN KEY (job_history) REFERENCES job_history(history_id) ON DELETE SET NULL,
+    CONSTRAINT fk_ongoing_contractor FOREIGN KEY (contractor_id) REFERENCES bca_user(ID) ON DELETE SET NULL
 );
 
 
@@ -149,20 +147,18 @@ CREATE TABLE OnGoing_Job (
 -- later ---
 
 -- Add Foreign Key for ongoing_id
+
 ALTER TABLE customer_job 
 ADD CONSTRAINT fk_ongoing FOREIGN KEY (ongoing_id) 
 REFERENCES OnGoing_Job(ongoing_id) ON DELETE SET NULL;
 
--- Add Foreign Key for job_history
 ALTER TABLE customer_job 
 ADD CONSTRAINT fk_job_history FOREIGN KEY (job_history) 
 REFERENCES Job_History(history_id) ON DELETE SET NULL;
 
--- Add Foreign Key for invoice_id
 ALTER TABLE customer_job 
 ADD CONSTRAINT fk_invoice FOREIGN KEY (invoice_id) 
 REFERENCES Job_Invoice(invoice_id) ON DELETE SET NULL;
-
 
 
 
@@ -191,7 +187,8 @@ INSERT INTO serviceman_under_contractor (serviceman_id, contractor_id) VALUES
 INSERT INTO customer_job (customer_id, contractor_id, job_name, address) VALUES
 (1, 1, 'Electrical Wiring', '123 Street, City'),
 (2, 2, 'Plumbing Repair', '456 Avenue, City');
-
+INSERT INTO customer_job (customer_id, contractor_id, job_name, address) VALUES
+(3, 1, 'TV Wiring', '123 Street, City');
 -- Insert into Job_Invoice
 INSERT INTO Job_Invoice (job_history, amount, tax_amount) VALUES
 ('Job 1 completed', 500.00, 50.00),

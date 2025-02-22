@@ -1,6 +1,7 @@
-package com.CrmServices.ServiceMan.registration.dao;
+package com.CrmServices.ServiceMan.AuthServiceman.dao;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ServicemanEntity {
 
@@ -13,11 +14,12 @@ public class ServicemanEntity {
     private String address;
     private int companyId;
     private Boolean thirdParty;
+    private String companyName;
     private Boolean taxForm1099;
     private String status;
     private String behaviorStatus;
-    private Date createdDate;
-    private Date updatedDate;
+    private Timestamp createdDate;
+    private Timestamp updatedDate;
 
     // No-argument constructor
     public ServicemanEntity() {
@@ -26,7 +28,7 @@ public class ServicemanEntity {
     // All-arguments constructor
     public ServicemanEntity(int servicemanId, String name, String email, String phone, String password,
                             String fieldOfWork, String address, int companyId, Boolean thirdParty,
-                            String status, String behaviorStatus, Date createdDate, Date updatedDate) {
+                            String status, String behaviorStatus, Timestamp createdDate, Timestamp updatedDate) {
         this.servicemanId = servicemanId;
         this.name = name;
         this.email = email;
@@ -117,6 +119,14 @@ public class ServicemanEntity {
         this.taxForm1099 = thirdParty;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     public Boolean getTaxForm1099() {
         return taxForm1099;
     }
@@ -141,19 +151,19 @@ public class ServicemanEntity {
         this.behaviorStatus = behaviorStatus;
     }
 
-    public Date getCreatedDate() {
+    public Timestamp getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getUpdatedDate() {
+    public Timestamp getUpdatedDate() {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
+    public void setUpdatedDate(Timestamp updatedDate) {
         this.updatedDate = updatedDate;
     }
 

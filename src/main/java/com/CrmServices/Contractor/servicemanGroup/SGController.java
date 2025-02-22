@@ -6,6 +6,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.CrmServices.Contractor.UnderServiceman.UServicemanEntity;
+import com.CrmServices.Contractor.UnderServiceman.UServicemanService;
+import com.CrmServices.Contractor.servicemanGroup.dao.DTOSGRequest;
+import com.CrmServices.Contractor.servicemanGroup.dao.DTOSGResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,9 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import com.CrmServices.Contractor.servicemanGroup.dao.DTOSGRequest;
-import com.CrmServices.Contractor.servicemanGroup.dao.DTOSGResponse;
-import com.CrmServices.Contractor.servicemanGroup.dao.UCServicemanEntity;
 import com.CrmServices.Helper.ResponseObject;
 
 @Controller
@@ -38,12 +39,13 @@ public class SGController {
 
     @Autowired
     private SGService sgService;
+    @Autowired
+    private UServicemanService uServicemanService;
 
     // GET ALL SERVICEMAN GROUP UNDER CONTRACTOR
     @GetMapping("")
-
     public String serviceman(Model model, HttpServletRequest request) {
-
+        
         if (request.getSession().isNew() ||
                 request.getSession().getAttribute("userID") == null) {
             return "loginPage1";
@@ -62,10 +64,14 @@ public class SGController {
 
         List<DTOSGResponse> servicemanGroupEntities = sgService.getServicemanAllGroup(contractor_id);
         model.addAttribute("serviceman_group", servicemanGroupEntities);
+        System.out.println("------------------ " + servicemanGroupEntities);
+        ResponseObject uServices =  uServicemanService.getAllUnderServiceman(contractor_id);
+        if(uServices.getIsError()){
+            model.addAttribute("under_contractor", null);
+        }
+        model.addAttribute("under_contractor", uServices.getData());
 
-        List<UCServicemanEntity> uIServicemanEntities = sgService.getUIServicemanByContractorId(contractor_id);
-        model.addAttribute("under_contractor", uIServicemanEntities);
-
+        
 
         return "/crm/contractor/ContractorServiceman";
     }
@@ -89,6 +95,8 @@ public class SGController {
         if (request.getSession().isNew() || request.getSession().getAttribute("userID") == null) {
             return ResponseEntity.badRequest().body(Map.of("error", "User not logged in"));
         }
+
+
 
         try {
 
@@ -167,4 +175,5 @@ public class SGController {
                     .body(Map.of("error", e.getMessage()));
         }
     }
+
 }
