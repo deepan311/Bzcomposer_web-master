@@ -102,12 +102,11 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.paypal.sdk/paypal-core -->
         <dependency>
-            <groupId>com.paypal.sdk</groupId>
-            <artifactId>core</artifactId>
-            <scope>system</scope>
-            <version>1.0</version>
-            <systemPath>${pom.basedir}/src/main/webapp/WEB-INF/lib/paypal_base.jar</systemPath>
-        </dependency>
+    	    <groupId>com.paypal.sdk</groupId>
+    	    <artifactId>paypal-core</artifactId>
+    	    <version>1.7.2</version> 
+	</dependency>
+
         <dependency>
             <groupId>com.paypal.sdk</groupId>
             <artifactId>rest-api-sdk</artifactId>
