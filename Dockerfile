@@ -19,11 +19,12 @@ RUN mvn clean package -DskipTests \
 FROM eclipse-temurin:17-alpine
 WORKDIR /app
 
-# Copy built JAR from the previous build stage
+# Copy built JAR from the previous build stage and rename it
 COPY --from=build /app/target/*.jar app.jar
 
 # Expose application port
 EXPOSE 8080
 
-# Run the Spring Boot application with additional JVM arguments
-ENTRYPOINT ["java", "--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED", "--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED", "-jar", "app.jar"]
+# Use CMD to ensure the container starts correctly on Koyeb
+CMD ["java", "-jar", "app.jar"]
+
