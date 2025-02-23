@@ -103,12 +103,11 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.paypal.sdk/paypal-core -->
         <dependency>
-            <groupId>com.paypal.sdk</groupId>
-            <artifactId>core</artifactId>
-            <scope>system</scope>
-            <version>1.0</version>
-            <systemPath>${pom.basedir}/src/main/webapp/WEB-INF/lib/paypal_base.jar</systemPath>
-        </dependency>
+    		<groupId>com.paypal.sdk</groupId>
+    		<artifactId>paypal-core</artifactId>
+    		<version>1.7.2</version> <!-- Change the version based on availability -->
+	</dependency>
+
         <dependency>
             <groupId>com.paypal.sdk</groupId>
             <artifactId>rest-api-sdk</artifactId>
@@ -222,7 +221,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
+            </plugin>
+        </plugins>
 		<finalName>${project.artifactId}</finalName>
 
     </build>

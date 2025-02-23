@@ -33,6 +33,7 @@ public class AdminController {
         String companyID = (String) request.getSession().getAttribute("CID");
         String forward = "/admin/dashboard";
         configInfo.setCurrentRequest(request);
+        System.out.println("Action--------------------------" + action + forward);
         if(action == null){
 
         }
