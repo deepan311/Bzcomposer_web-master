@@ -26,5 +26,5 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 
 # Use CMD to ensure the container starts correctly on Koyeb
-CMD ["java", "-jar", "app.jar"]
+CMD ["catalina.sh", "run"]
 
