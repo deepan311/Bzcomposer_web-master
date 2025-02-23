@@ -7,24 +7,20 @@ COPY pom.xml ./
 RUN mvn dependency:go-offline
 
 # Copy the entire source code
-COPY . . 
+COPY . .
 
-# Compile & package the application with necessary JVM arguments
-RUN mvn clean package -DskipTests \
-    -Dmaven.compiler.forceJavacCompilerUse=true \
-    -Djdk.module.illegalAccess=permit \
-    --batch-mode
+# Compile & package the application as a WAR file
+RUN mvn clean package -DskipTests
 
-# Use lightweight JDK runtime for running the application
-FROM eclipse-temurin:17-alpine
-WORKDIR /app
+# Use Tomcat base image for deployment
+FROM tomcat:10.1-jdk17
+WORKDIR /usr/local/tomcat/webapps
 
-# Copy built JAR from the previous build stage and rename it
-COPY --from=build /app/target/*.jar app.jar
+# Copy the generated WAR file to Tomcat's webapps directory
+COPY --from=build /app/target/*.war ROOT.war
 
-# Expose application port
+# Expose default Tomcat port
 EXPOSE 8080
 
-# Use CMD to ensure the container starts correctly on Koyeb
+# Start Tomcat
 CMD ["catalina.sh", "run"]
-
