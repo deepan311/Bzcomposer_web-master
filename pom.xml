@@ -97,7 +97,7 @@
             <groupId>com.paypal.sdk</groupId>
             <artifactId>paypal-base</artifactId>
             <scope>system</scope>
-            <version>1.0</version>
+            <version>1.14.0</version>
             <systemPath>${pom.basedir}/src/main/webapp/WEB-INF/lib/paypal_stubs.jar</systemPath>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.paypal.sdk/paypal-core -->
